@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yellowstone Application</title>
+
+  <link rel="stylesheet" href="css/bootstrap-custom.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="bg-light">
+  <header>
+    <div class="nav navbar navbar-expand-md bg-primary w-100">
+      <a class="nav-brand p-3" href="#">
+        <img src="res/66_17_logo-yellowstone.gif">
+      </a>
+      <button class="bg-light px-2 py-1 mx-3 aspect-ratio-1 navbar-toggler focus-ring" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse pt-2 border-top border-top-md-0 border-light border-opacity-25" id="navbarCollapse">
+        <div class="d-flex align-items-center mx-3 ms-md-auto">
+          <input class="form-control me-2 focus-ring" placeholder="Search">
+          <button class="btn btn-light">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="d-flex justify-content-center my-5">
+      <fieldset class="w-75 px-5 py-3 text-primary border border-2 border-secondary rounded-3">
+        <legend class="float-none w-auto fw-bold fs-3">Application Form</legend>
+        <p>
+          If you are an individual with disabilities who needs accommodation or you 
+          are having difficulty using our web site to apply for employment, 
+          please contact the Human Resources team at (307) 344-5324.
+        </p>
+        <p>
+          Xanterra Parks & Resorts (Authorized Concessioner of the National Park Service) 
+          is an equal opportunity employer and does not discriminate against any 
+          individual in any phase of employment on the basis of race, color, creed, 
+          religion, sexual orientation, national origin, ancestry, veteran status, age, 
+          disability or any other legally protected status under applicable law. AA/EOE M/F/D/V
+        </p>
+        <p class="fw-bold">
+          Have you already submitted one application for this season's employment?
+          If so, please <span class="text-decoration-underline text-danger">DO NOT</span> 
+          submit another application! Doing so slows your application 
+          and review process down significantly and you may lose the opportunity to be 
+          considered for the job you really want!
+        </p>
+        <p class="fw-bold">
+          If you need to make ANY changes to your application for employment, please 
+          email us at info@yellowstonejobs.com.
+        </p>
+        <form class="needs-validation py-3" action="/personal-info.html" novalidate>
+          <div class="vstack w-50 gap-3 mx-auto">
+            <div class="text-center fs-5 fw-bold lead">
+              Please affirm the following statements.
+            </div>  
+            <div class="form-check px-5">
+              <input class="form-check-input check-input-lg" type="checkbox" value="" id="firstApplicationCheckbox" required>
+              <label class="form-check-label ms-2 user-select-none" for="firstApplicationCheckbox">
+                This is your first application this season.
+              </label>
+              <div class="invalid-feedback">
+                You must agree before continuing.
+              </div>
+            </div>
+            <div class="form-check px-5">
+              <input class="form-check-input check-input-lg" type="checkbox" value="" id="workEligibilityCheckbox" required>
+              <label class="form-check-label ms-2 user-select-none" for="workEligibilityCheckbox">
+                You can provide proof that you are eligible to work in the United States.
+              </label>
+              <div class="invalid-feedback">
+                You must agree before continuing.
+              </div>
+            </div>
+            <button class="btn btn-primary w-50 align-self-center" type="submit">Continue</button>
+          </div>
+        </form>
+      </fieldset>
+    </div>
+  </main>
+
+  <script src="https://kit.fontawesome.com/b3b9250d86.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

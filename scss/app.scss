@@ -1,0 +1,73 @@
+@import "../bootstrap/scss/_functions"; 
+@import "../bootstrap/scss/_variables";
+
+$primary: #293c5a;
+$secondary: #9a9f42;  
+
+$theme-colors: map-merge($theme-colors, (
+  "primary": $primary,
+  "secondary": $secondary
+));
+
+@import "../bootstrap/scss/_variables-dark";
+@import "../bootstrap/scss/_maps";
+@import "../bootstrap/scss/_utilities";
+
+// add extra more width classes
+$utilities: map-merge(
+  $utilities,
+  (
+    "width": map-merge(
+      map-get($utilities, "width"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "width"), "values"),
+          (20: 20%, 40: 40%, 60: 60%, 80: 80%),
+        ),
+      ),
+    ),
+  )
+);
+
+// add responsive widths
+$utilities: map-merge( 
+  $utilities, ( "width": map-merge( 
+    map-get( $utilities, "width"), ( responsive: true ),),)
+);
+
+// add responsive borders
+$utilities: map-merge(
+  $utilities, 
+  (
+    "border": map-merge(
+      map-get($utilities, "border"),
+      ( responsive: true ),
+    ),
+    "border-top": map-merge(
+      map-get($utilities, "border-top"),
+      ( responsive: true ),
+    ),
+    "border-end": map-merge(
+      map-get($utilities, "border-end"),
+      ( responsive: true ),
+    ),
+    "border-bottom": map-merge(
+      map-get($utilities, "border-bottom"),
+      ( responsive: true ),
+    ),
+    "border-start": map-merge(
+      map-get($utilities, "border-start"),
+      ( responsive: true ),
+    ),
+    "border-color": map-merge(
+      map-get($utilities, "border-color"),
+      ( responsive: true ),
+    ),
+    "border-width": map-merge(
+      map-get($utilities, "border-width"),
+      ( responsive: true ),
+    )
+  )
+);
+
+@import "../bootstrap/scss/bootstrap";

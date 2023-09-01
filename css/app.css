@@ -1,0 +1,67 @@
+/*
+  Identifiers
+*/
+
+/*
+  Classes
+*/
+
+.aspect-ratio-1 {
+  aspect-ratio: 1;
+}
+
+.check-input-lg {
+  transform: scale(1.5);
+}
+
+.progress {
+  height: 5px;
+}
+
+.progress-bar {
+  width: calc(100% / 6);
+}
+
+.nav-tabs .nav-link {
+  font-weight: bold;
+  background-color: var(--bs-dark-bg-subtle);
+  color: var(--bs-primary)
+}
+
+.nav-tabs .nav-link[aria-expanded="true"] {
+  background-color: var(--bs-primary);
+  color: var(--bs-light);
+}
+
+.nav-tabs .nav-link:hover:not(:focus) {
+  background-color: var(--bs-primary) !important;
+  color: var(--bs-light); 
+}
+
+.input-group.is-invalid .invalid-feedback {
+    display: block;
+}
+
+.input-group .form-label { 
+  z-index: 5; 
+}
+
+/*
+  Elements
+*/
+
+/*
+  Media Queries
+*/
+
+@media (max-width: 991px) {
+  .nav-tabs {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  form {
+    font-size: 14px; 
+  }
+}
