@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yellowstone Application</title>
+
+  <link rel="stylesheet" href="css/bootstrap-custom.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="bg-info">
+  <header>
+    <div class="nav navbar navbar-expand-md bg-primary w-100">
+      <a class="nav-brand p-3" href="/index.html">
+        <img src="res/66_17_logo-yellowstone.gif">
+      </a>
+      <button class="bg-light px-2 py-1 mx-3 aspect-ratio-1 navbar-toggler focus-ring" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse pt-2 border-top border-top-md-0 border-light border-opacity-25" id="navbarCollapse">
+        <div class="d-flex align-items-center mx-3 ms-md-auto">
+          <input class="form-control me-2 focus-ring" placeholder="Search">
+          <button class="btn btn-light">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="d-flex flex-column justify-content-center my-5 px-3">
+      <div class="d-flex justify-content-center my-5 py-3 overflow-visible">
+        <div class="progress w-100 w-lg-75 d-flex flex-row overflow-visible" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary position-relative overflow-visible">
+            <div class="ms-auto position-absolute rounded-circle bg-primary border border-3 border-primary progress-circle">
+              <button class="btn btn-info position-absolute text-primary mt-3" data-bs-toggle="collapse" href="#personalTab" role="button" aria-expanded="true" aria-controls="personalTab">
+                Personal Information
+              </button>
+            </div>
+          </div>
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary bg-light position-relative overflow-visible">
+            <div class="ms-auto position-absolute rounded-circle bg-primary bg-light border border-3 border-primary progress-circle">
+              <button class="btn btn-info position-absolute text-primary mb-3 bottom-0" data-bs-toggle="collapse" href="#positionTab" role="button" aria-expanded="false" aria-controls="positionTab">
+                Position Information
+              </button>
+            </div>
+          </div>
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary bg-light position-relative overflow-visible">
+            <div class="ms-auto position-absolute rounded-circle bg-primary bg-light border border-3 border-primary progress-circle">
+              <button class="btn btn-info position-absolute text-primary mt-3" data-bs-toggle="collapse" href="#workExperienceTab" role="button" aria-expanded="false" aria-controls="workExperienceTab">
+                Work Experience
+              </button>
+            </div>
+          </div>
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary bg-light position-relative overflow-visible">
+            <div class="ms-auto position-absolute rounded-circle bg-primary bg-light border border-3 border-primary progress-circle">
+              <button class="btn btn-info position-absolute text-primary mb-3 bottom-0" data-bs-toggle="collapse" href="#educationTab" role="button" aria-expanded="false" aria-controls="educationTab">
+                Education
+              </button>
+            </div>
+          </div>
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary bg-light position-relative overflow-visible">
+            <div class="ms-auto position-absolute rounded-circle bg-primary bg-light border border-3 border-primary progress-circle">
+              <button class="btn btn-info position-absolute text-primary mt-3" data-bs-toggle="collapse" href="#generalTab" role="button" aria-expanded="false" aria-controls="generalTab">
+                General Information
+              </button>
+            </div>
+          </div>
+          <div class="progress-bar bg-transparent position-relative overflow-visible">
+          </div>
+        </div>
+      </div>
+      <div class="w-100 px-4 pb-4 text-primary rounded-3">
+        <div class="collapse show" id="personalTab">
+          <form class="needs-validation bg-secondary rounded-2 py-3" novalidate>
+            <div class="fs-3 fw-bold user-select-none border-bottom border-primary border-3 mx-5 mb-4">Personal Information</div>
+            <div class="vstack w-75 w-lg-50 gap-4 mx-auto">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="fullNameInput" required>
+                <label class="form-label" for="fullNameInput">Full Name</label>
+                <div class="invalid-feedback">
+                  Please enter your full name.
+                </div>
+              </div>
+              <div class="form-floating">
+                <input type="text" class="form-control" id="addressInput" required>
+                <label class="form-label" for="addressInput">Mailing Address</label>
+                <div class="invalid-feedback">
+                  Please enter your mailing address.
+                </div>
+              </div>
+              <div class="form-floating">
+                <input type="text" class="form-control" id="cityInput" required>
+                <label class="form-label" for="cityInput">City</label>
+                <div class="invalid-feedback">
+                  Please enter your city.
+                </div>
+              </div>
+              <div class="form-floating">
+                <select class="form-select state-select" aria-label="Select state" id="stateSelect" required>
+                </select>
+                <label class="form-label" for="stateSelect">State</label>
+              </div>
+              <div class="form-floating">
+                <input type="number" class="form-control" id="zipcodeInput" required>
+                <label class="form-label" for="zipcodeInput">Zip Code</label>
+                <div class="invalid-feedback">
+                  Please enter your zip code.
+                </div>
+              </div>
+              <div class="form-floating">
+                <select class="form-select country-select" aria-label="Select country" id="countrySelect" required>
+                </select>
+                <label class="form-label" for="countrySelect">Country</label>
+                <div class="invalid-feedback">
+                  Please enter your phone number.
+                </div>
+              </div>
+              <div class="form-floating">
+                <input type="number" class="form-control" id="phoneInput" required>
+                <label class="form-label" for="phoneInput">Phone Number</label>
+                <div class="invalid-feedback">
+                  Please enter your phone number.
+                </div>
+              </div>
+              <div class="form-floating">
+                <input type="email" class="form-control" id="emailInput" required>
+                <label class="form-label" for="emailInput">Email</label>
+                <div class="invalid-feedback">
+                  Please enter your email.
+                </div>
+              </div>
+              <button class="btn btn-primary w-50 align-self-center" type="submit">Continue to Next Step</button>
+            </div>
+          </form>
+        </div>
+        <div class="collapse" id="positionTab">
+          <form class="needs-validation bg-secondary rounded-2 py-4" novalidate>
+            <div class="fs-3 fw-bold user-select-none border-bottom border-primary border-3 mx-5 mb-4">Position Information</div>
+            <div class="vstack w-75 w-lg-50 gap-4 mx-auto">
+              <div class="vstack gap-4" id="position-selects">
+                <div class="form-floating">
+                  <select class="form-select position-select" aria-label="Select position 1" id="positionSelect1" required>
+                  </select>
+                  <label class="form-label" for="positionSelect1">Position 1</label>
+                  <div class="invalid-feedback">
+                    Please select a position.
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-center">
+                <button class="btn btn-success addPositionBtn" type="button">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+              <div class="form-floating">
+                <input type="text" class="form-control" id="optionalPositionInput">
+                <label class="form-label" for="optionalPositionInput">Optional Position</label>
+                <div class="form-text">
+                  If you'd like to apply for a different position -- 
+                  please enter the name of the job 
+                  into the prior box.
+                </div>
+                <div class="hstack justify-content-center">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="optionalPositionType" id="positionType1" value="seasonal" checked disabled>
+                    <label class="form-check-label" for="positionType1">
+                      Seasonal Position
+                    </label>
+                  </div>
+                  <div class="form-check ms-3">
+                    <input class="form-check-input" type="radio" name="optionalPositionType" id="positionType2" value="yearly" disabled>
+                    <label class="form-check-label" for="positionType2">
+                      Year-Round Position
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-check text-center">
+                <input class="form-check-input check-input-lg" type="checkbox" value="" id="workEligibilityCheckbox">
+                <label class="form-check-label user-select-none " for="workEligibilityCheckbox">
+                  Would you accept a Server Assistant, Kitchen Crew, Cafeteria, Laundry, Food Service Attendant or 
+                  Room Attendant position if those applied for are unavailable?
+                </label>
+              </div>
+              <button class="btn btn-primary w-50 align-self-center" type="submit">Continue to Next Step</button>
+            </div>
+          </form>
+        </div>
+        <div class="collapse" id="workExperienceTab">
+          <form class="needs-validation bg-secondary rounded-2 py-4" novalidate>
+            <div class="fs-3 fw-bold user-select-none border-bottom border-primary border-3 mx-5 mb-4">Work Experience</div>
+            <div class="vstack gap-3 mx-auto px-5">
+              <div class="vstack gap-3" id="employerStack">
+                <div class="w-100 w-lg-75 bg-primary rounded-1 mx-auto px-5 py-3 employer-info">
+                  <div class="vstack gap-4 mx-auto">
+                    <div class="fs-4 text-secondary pt-3 user-select-none employer-header">
+                      <div class="d-inline">Employer #1</div>
+                      <button type="button" class="btn btn-danger close-btn float-end" aria-label="Close">
+                        <i class="fa-solid fa-xmark text-red"></i>
+                      </button>
+                    </div>
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="employerNameInput1" required>
+                      <label class="form-label" for="employerNameInput1">Employer Name</label>
+                      <div class="invalid-feedback">
+                        Please enter your employer's name.
+                      </div>
+                    </div>
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="employerAddressInput1" required>
+                      <label class="form-label" for="employerAddressInput1">Street Address</label>
+                      <div class="invalid-feedback">
+                        Please enter your employer's street address.
+                      </div>
+                    </div>
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="employerCityInput1" required>
+                      <label class="form-label" for="employerCityInput1">City</label>
+                      <div class="invalid-feedback">
+                        Please enter your employer's city.
+                      </div>
+                    </div>
+                    <div class="form-floating">
+                      <select class="form-control state-select" id="employerStateInput1" required></select>
+                      <label class="form-label" for="employerStateInput1">State</label>
+                      <div class="invalid-feedback">
+                        Please enter your employer's state.
+                      </div>
+                    </div>
+                    <div class="form-floating">
+                      <input type="number" class="form-control" id="employerZipCodeInput1" required>
+                      <label class="form-label" for="employerZipCodeInput1">Zip Code</label>
+                      <div class="invalid-feedback">
+                        Please enter your employer's zip code.
+                      </div>
+                    </div>
+                    <div class="form-floating">
+                      <select class="form-control country-select" id="employerCountryInput1" required></select>
+                      <label class="form-label" for="employerCountryInput1">Country</label>
+                      <div class="invalid-feedback">
+                        Please enter your employer's country.
+                      </div>
+                    </div>
+                    <div class="form-floating">
+                      <input type="number" class="form-control" id="employerPhoneNumberInput1" required>
+                      <label class="form-label" for="employerPhoneNumberInput1">Phone Number</label>
+                      <div class="invalid-feedback">
+                        Please enter your employer's phone number.
+                      </div>
+                    </div>
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="employerPositionInput1" required>
+                      <label class="form-label" for="employerPositionInput1">Position</label>
+                      <div class="invalid-feedback">
+                        Please enter your former position.
+                      </div>
+                    </div>
+                    <div class="hstack flex-column flex-md-row gap-4">
+                      <div class="form-floating w-100 w-md-50">
+                        <input type="text" class="form-control" id="employerSupervisorNameInput1" required>
+                        <label class="form-label" for="employerSupervisorNameInput1">Supervisor's Name</label>
+                        <div class="invalid-feedback">
+                          Please enter your supervisor's name.
+                        </div>
+                      </div>
+                      <div class="form-floating w-100 w-md-50">
+                        <input type="text" class="form-control" id="employerSupervisorTitleInput1" required>
+                        <label class="form-label" for="employerSupervisorTitleInput1">Supervisor's Title</label>
+                        <div class="invalid-feedback">
+                          Please enter your supervisor's title.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="hstack flex-column flex-md-row gap-4">
+                      <div class="form-floating w-100 w-md-50">
+                        <input type="date" class="form-control" id="employerStartDateInput1" required>
+                        <label class="form-label" for="employerStartDateInput1">Start Date</label>
+                        <div class="invalid-feedback">
+                          Please enter your employment starting date.
+                        </div>
+                      </div>
+                      <div class="form-floating w-100 w-md-50">
+                        <input type="date" class="form-control" id="employerEndDateInput1" required>
+                        <label class="form-label" for="employerEndDateInput1">End Date</label>
+                        <div class="invalid-feedback">
+                          Please enter your employment ending date.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-floating">
+                      <textarea class="form-control" id="employerSpecificDutiesInput1" required></textarea>
+                      <label class="form-label" for="employerEndDateInput1">Specific Duties</label>
+                      <div class="invalid-feedback">
+                        Please enter your specific duties at your former employer.
+                      </div>
+                    </div>
+                    <div class="form-floating">
+                      <textarea class="form-control" id="employerReasonForLeavingInput1" required></textarea>
+                      <label class="form-label" for="employerReasonForLeavingInput1">Reason for Leaving</label>
+                      <div class="invalid-feedback">
+                        Please enter your reason for leaving.
+                      </div>
+                    </div>
+                    <div class="form-check d-flex justify-content-center">
+                      <input class="form-check-input check-input-lg ar-1" type="checkbox" id="employerContact1" value="no">
+                      <label class="form-check-label ms-3 user-select-none" for="employerContact1" style="color: var(--bs-gray-500);">
+                        May we contact this employer?
+                      </label>
+                    </div>
+                  </div>
+                </div> 
+              </div>
+              <div class="d-flex justify-content-center">
+                <button class="btn btn-success btn-add" type="button">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+              <button class="btn btn-primary w-50 align-self-center" type="submit">Continue to Next Step</button>
+            </div>
+          </form>
+        </div>
+        <div class="collapse" id="educationTab">
+          <form class="needs-validation bg-secondary rounded-2 py-4" novalidate>
+            <div class="fs-3 fw-bold user-select-none border-bottom border-primary border-3 mx-5 mb-4">Education</div>
+            <div class="vstack w-100 w-lg-75 gap-3 mx-auto">
+              <div class="vstack gap-3 bg-primary rounded-1 mx-5 px-5 py-3">
+                <div class="fs-4 text-secondary user-select-none school-header">
+                  <div class="d-inline">School #1</div>
+                  <button type="button" class="btn btn-danger close-btn float-end" aria-label="Close">
+                    <i class="fa-solid fa-xmark text-red"></i>
+                  </button>
+                </div>
+                <div class="vstack flex-column flex-xl-row align-items-xl-stretch gap-3 border border-primary pb-3">
+                  <div class="form-floating h-100">
+                    <input type="text" class="form-control" id="schoolNameInput1" required>
+                    <label class="form-label" for="schoolNameInput1">School Name</label>
+                    <div class="invalid-feedback">
+                      Please enter the school's name.
+                    </div>
+                  </div>
+                  <div class="form-floating h-100">
+                    <input type="text" class="form-control" id="schoolLocationInput1" required>
+                    <label class="form-label" for="schoolLocationInput1">School Location</label>
+                    <div class="invalid-feedback">
+                      Please enter the school's location.
+                    </div>
+                  </div>
+                  <div class="form-floating h-100">
+                    <input type="text" class="form-control" id="schoolDegreeInput1" required>
+                    <label class="form-label" for="schoolDegreeInput1">Degree Received</label>
+                    <div class="invalid-feedback">
+                      Please enter the degree you received.
+                    </div>
+                  </div>
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="schoolFieldOfStudyInput1" required>
+                    <label class="form-label" for="schoolFieldOfStudyInput1">Field of Study</label>
+                    <div class="invalid-feedback">
+                      Please enter your field of study.
+                    </div>
+                  </div>
+                  <div class="form-check text-info mx-auto mt-xl-3">
+                    <input class="form-check-input check-input-lg" type="checkbox" id="schoolGraduateCheckbox1">
+                    <label class="form-check-label ms-1 user-select-none" for="schoolGraduateCheckbox1">
+                      Graduate?
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-primary w-50 align-self-center" type="submit">Continue to Next Step</button>
+            </div>
+          </form>
+        </div>
+        <div class="collapse" id="generalTab">
+          <form class="needs-validation bg-secondary rounded-2 py-4" novalidate>
+            <div class="vstack w-100 w-lg-50 gap-3 mx-auto">
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://kit.fontawesome.com/b3b9250d86.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/constants.js"></script>
+  <script src="js/application.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

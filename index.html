@@ -8,10 +8,10 @@
   <link rel="stylesheet" href="css/bootstrap-custom.css">
   <link rel="stylesheet" href="css/app.css">
 </head>
-<body class="bg-light">
+<body class="bg-info">
   <header>
     <div class="nav navbar navbar-expand-md bg-primary w-100">
-      <a class="nav-brand p-3" href="#">
+      <a class="nav-brand p-3" href="/index.html">
         <img src="res/66_17_logo-yellowstone.gif">
       </a>
       <button class="bg-light px-2 py-1 mx-3 aspect-ratio-1 navbar-toggler focus-ring" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-label="Toggle navigation">
@@ -55,7 +55,7 @@
           If you need to make ANY changes to your application for employment, please 
           email us at info@yellowstonejobs.com.
         </p>
-        <form class="needs-validation py-3" action="/personal-info.html" novalidate>
+        <form class="needs-validation py-3" action="/application.html" novalidate>
           <div class="vstack w-50 gap-3 mx-auto">
             <div class="text-center fs-5 fw-bold lead">
               Please affirm the following statements.
@@ -70,13 +70,32 @@
               </div>
             </div>
             <div class="form-check px-5">
-              <input class="form-check-input check-input-lg" type="checkbox" value="" id="workEligibilityCheckbox" required>
+              <input class="form-check-input check-input-lg" type="checkbox" id="workEligibilityCheckbox" required>
               <label class="form-check-label ms-2 user-select-none" for="workEligibilityCheckbox">
                 You can provide proof that you are eligible to work in the United States.
               </label>
               <div class="invalid-feedback">
                 You must agree before continuing.
               </div>
+            </div>
+            <div class="text-center fs-5 fw-bold lead">
+              Please answer the following questions.
+            </div> 
+            <div class="form-check px-5">
+              <input class="form-check-input check-input-lg" type="checkbox" id="internationalCheckbox">
+              <label class="form-check-label ms-2 user-select-none" for="internationalCheckbox">
+                Are you an international applicant?
+              </label>
+            </div>
+            <div class="form-floating" id="sponsoringAgencyDiv">
+              <select class="form-control" id="sponsoringAgencySelect" disabled required>
+                <option></option>
+                <option>Aspire</option>
+                <option>CIEE</option>
+                <option>CCUSA</option>
+                <option>InterExchange</option>
+              </select>
+              <label class="form-label">Sponsoring Agency</label>
             </div>
             <button class="btn btn-primary w-50 align-self-center" type="submit">Continue</button>
           </div>
@@ -88,6 +107,7 @@
   <script src="https://kit.fontawesome.com/b3b9250d86.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/index.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

@@ -22,6 +22,21 @@
   width: calc(100% / 6);
 }
 
+.progress-bar .progress-circle {
+  width: 12px;
+  height: 12px;
+  right: 0;
+  z-index: 1;
+}
+
+.progress-bar .btn {
+  transform: translateX(-50%);
+}
+
+.progress-bar .btn[aria-expanded="true"] {
+  font-weight: bold;
+}
+
 .nav-tabs .nav-link {
   font-weight: bold;
   background-color: var(--bs-dark-bg-subtle);
@@ -54,13 +69,21 @@
   Media Queries
 */
 
-@media (max-width: 991px) {
-  .nav-tabs {
+@media (max-width: 991.98px) {
+  .progress .btn {
     font-size: 12px;
+  }
+
+  .nav-tabs {
+    font-size: 14px;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767.98px) {
+  .progress .btn {
+    font-size: 10px;
+  }
+
   form {
     font-size: 14px; 
   }

@@ -69,28 +69,19 @@ function setDisabledOptions() {
   });
 }
 
-$(function() {
-  (() => {
-    'use strict'
-  
-    // fetch all the forms we want to apply custom Bootstrap validation styles to
-    const forms = document.querySelectorAll('.needs-validation')
-  
-    // loop over them and prevent submission
-    Array.from(forms).forEach(form => {
-      form.addEventListener('submit', event => {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
-        }
-  
-        form.classList.add('was-validated')
-      }, false)
-    })
-  })();
+function updateEmployerInfo(element, newEmployerNumber) {
+  element.find('.employer-header > div').text(`Employer #${newEmployerNumber}`);
+  element.find('input, select, textarea').each(function() {
+    $(this).attr('id', $(this).attr('id').slice(0, -1) + newEmployerNumber);
+  });
 
+  element.find('label').each(function() {
+    $(this).attr('for', $(this).attr('for').slice(0, -1) + newEmployerNumber);
+  });
+}
+
+$(function() {
   // not a fan of globals like this
-  // but this is this the easiest way to do this in my opinion
   let ongoingCollapseShow = false; 
   $('main .collapse').on({'hide.bs.collapse': function(e) {
     const eventCollapse = $(this);
@@ -149,12 +140,12 @@ $(function() {
         }
     });
     setDisabledOptions();
-    if ($('position-select').length < maxNumberOfPositions) {
+    if ($('position-select').length < MAX_NUMBER_OF_POSITIONS) {
       $('.addPositionBtn').css({'display': 'block'});
     }
   });
 
-  $('.addPositionBtn').click(function() {
+  $('#personalTab .addPositionBtn').click(function() {
     const nextPosition = $('.position-select').length + 1; 
     $('#position-selects').append(`
       <div class='input-group form-floating'>
@@ -171,8 +162,39 @@ $(function() {
     `);
     setupPositionSelect($('#positionSelect' + nextPosition));
     setDisabledOptions();
-    if (nextPosition >= maxNumberOfPositions) {
+    if (nextPosition >= MAX_NUMBER_OF_POSITIONS) {
       $(this).css({'display': 'none'});
+    }
+  });
+
+  $('#workExperienceTab .btn-add').click(function() {
+    if ($('#employerStack').children().length == 1 && $('.employer-info').css('display') == 'none') {
+      $('.employer-info').css({'display': 'block'});
+      return;
+    }
+
+    const nextEmployerNumber = $('#employerStack').children().length + 1; 
+    let clone = $('#workExperienceTab .employer-info').first().clone();
+    updateEmployerInfo(clone, nextEmployerNumber);
+    clone.appendTo('#employerStack');
+    if (nextEmployerNumber >= MAX_NUMBER_OF_EMPLOYERS) {
+      $(this).css({'display': 'none'});
+    }
+  });
+
+  $('#workExperienceTab').on('click', '.close-btn', function() {
+    if ($('#employerStack').length <= 1) {
+      $('.employer-info').css({'display': 'none'});
+      return;
+    }
+
+    $(this).parent().parent().parent().remove();
+    $('#employerStack .employer-info').each(function(index) {
+      updateEmployerInfo($(this), index + 1);
+    });
+
+    if ($('#employerStack').children().length < MAX_NUMBER_OF_EMPLOYERS) {
+      $('#workExperienceTab .btn-add').css({'display': 'block'});
     }
   });
 
