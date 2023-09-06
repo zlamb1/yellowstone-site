@@ -15,13 +15,4 @@ $(function() {
 
     form.classList.add('was-validated')
   }, false)})})();
-
-  $('#internationalCheckbox').click(function() {
-    const $select = $('#sponsoringAgencySelect');
-    if ($(this).is(':checked')) {
-      $select.attr('disabled', false);
-    } else {
-      $select.attr('disabled', true);
-    }
-  });
 });

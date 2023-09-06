@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yellowstone Application</title>
+
+  <link rel="stylesheet" href="css/bootstrap-custom.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="bg-info">
+  <header>
+    <div class="nav navbar navbar-expand-md bg-primary w-100">
+      <a class="nav-brand p-3" href="/index.html">
+        <img src="res/66_17_logo-yellowstone.gif">
+      </a>
+      <button class="bg-light px-2 py-1 mx-3 aspect-ratio-1 navbar-toggler focus-ring" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse pt-2 border-top border-top-md-0 border-light border-opacity-25" id="navbarCollapse">
+        <div class="d-flex align-items-center mx-3 ms-md-auto">
+          <input class="form-control me-2 focus-ring" placeholder="Search">
+          <button class="btn btn-light">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="modal fade" id="submittedModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="submittedBackdropLabel" aria-hidden="false">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5 text-success user-select-none" id="submittedBackdropLabel">Congratulations!</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            You have submitted your application to Yellowstone!
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center my-5">
+      <div class="w-100 w-lg-75 mx-3 mx-lg-5 py-3 bg-primary rounded-3">
+        <form class="needs-validation py-3" novalidate action="/index.html">
+          <div class="fs-3 fw-bold user-select-none text-secondary border-bottom border-secondary border-3 mx-3 mx-lg-5">Optional Information</div>
+          <div class="form-text text-danger text-center px-3 px-lg-5">
+            *COMPLETION OF THIS INFORMATION IS VOLUNTARY, BUT IN NO WAY 
+            AFFECTS THE DECISION REGARDING YOUR APPLICATION FOR EMPLOYMENT. 
+            THIS INFORMATION IS CONFIDENTIAL AND WILL BE MAINTAINED SEPARATELY
+            FROM YOUR APPLICATION FORM.
+          </div>
+          <div class="w-100 w-md-75 w-lg-50 vstack gap-4 align-items-center mx-auto px-3 px-lg-5 pt-4">
+            <div class="w-100 vstack align-items-center text-secondary" id="starDiv">
+              <label type="button" class="text-center ms-2">How would you rate your experience with this application form?</label>
+              <div>
+                <button type="button" class="btn focus-ring p-0">
+                  <i class="fa-regular fa-star fa-lg text-warning"></i>
+                </button>
+                <button type="button" class="btn focus-ring p-0">
+                  <i class="fa-regular fa-star fa-lg text-warning"></i>
+                </button>
+                <button type="button" class="btn focus-ring p-0">
+                  <i class="fa-regular fa-star fa-lg text-warning"></i>
+                </button>
+                <button type="button" class="btn focus-ring p-0">
+                  <i class="fa-regular fa-star fa-lg text-warning"></i>
+                </button>
+                <button type="button" class="btn focus-ring p-0">
+                  <i class="fa-regular fa-star fa-lg text-warning"></i>
+                </button>
+              </div>
+            </div>
+            <div class="w-100 form-floating">
+              <select class="form-select" aria-label="Select how you heard about us" id="referenceSelect" required>
+                <option selected></option>
+                <option value="Y5100">You are a former YNP Employee </option>
+                <option value="Y5101">Referred by current/former Emp </option>
+                <option value="Y5111">Referred by friend or family </option>
+                <option value="Y5122">Visited Yellowstone </option>
+                <option value="Coolworks">Coolworks </option>
+                <option value="Y5195">Other Seasonal Employer </option>
+                <option value="Y5133">College Career Office Poster </option>
+                <option value="UNIV/CC">University Online Job Bank </option>
+                <option value="Y5302">Christ Ministry/Campus Crusade </option>
+                <option value="Recruiter">Spoke with a Recruiter </option>
+                <option value="Y5177">Job Srvc/Job Services Poster </option>
+                <option value="Y5102">Social Networking Site </option>
+                <option value="Y5502">Print Media Directed @ Seniors </option>
+                <option value="Y5188">Not Listed </option>   
+              </select>
+              <label class="form-label" for="referenceSelect">How did you hear about us?</label>
+              <div class="invalid-feedback">
+                Please select how you heard about us.
+              </div>
+            </div>
+            <div class="w-100 form-floating">
+              <select class="form-select" aria-label="Select ethnicity" id="ethnicitySelect" required>
+                <option selected></option>
+                <option>Hispanic or Latino</option>
+                <option>White (Not Hispanic or Latino)</option>
+                <option>Black or African American (Not Hispanic or Latino)</option>
+                <option>Native Hawaiian or Other Pacific Islander (Not Hispanic or Latino)</option>
+                <option>Asian (Not Hispanic or Latino)</option>
+                <option>American Indian or Alaska Native (Not Hispanic or Latino)</option>
+                <option>Two or More Races (Not Hispanic or Latino)</option>
+                <option>Not Listed</option>
+                <option>I prefer not to answer</option>          
+              </select>
+              <label class="form-label" for="ethnicitySelect">What is your race/ethnic origin?</label>
+              <div class="invalid-feedback">
+                Please select an ethnicity.
+              </div>
+            </div>
+            <div class="w-100 form-floating">
+              <select class="form-select" aria-label="Select gender" id="genderSelect" required>
+                <option selected></option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Not Listed</option>
+                <option>I prefer not to say</option>        
+              </select>
+              <label class="form-label" for="genderSelect">What is your gender?</label>
+              <div class="invalid-feedback">
+                Please select a gender.
+              </div>
+            </div>
+            <button class="btn btn-light w-50 align-self-center" type="submit">
+              Submit Information
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://kit.fontawesome.com/b3b9250d86.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/submitted.js"></script>
+</body>
+</html>

@@ -25,7 +25,6 @@
 .progress-bar .progress-circle {
   width: 12px;
   height: 12px;
-  right: 0;
   z-index: 1;
 }
 
@@ -37,28 +36,24 @@
   font-weight: bold;
 }
 
-.nav-tabs .nav-link {
-  font-weight: bold;
-  background-color: var(--bs-dark-bg-subtle);
-  color: var(--bs-primary)
+button[type="submit"] {
+  min-width: fit-content;
 }
 
-.nav-tabs .nav-link[aria-expanded="true"] {
-  background-color: var(--bs-primary);
-  color: var(--bs-light);
-}
-
-.nav-tabs .nav-link:hover:not(:focus) {
-  background-color: var(--bs-primary) !important;
-  color: var(--bs-light); 
+.form-floating {
+  overflow: hidden;
 }
 
 .input-group.is-invalid .invalid-feedback {
-    display: block;
+  display: block;
 }
 
 .input-group .form-label { 
   z-index: 5; 
+}
+
+.label-hover:hover {
+  filter: brightness(90%);
 }
 
 /*
@@ -86,5 +81,11 @@
 
   form {
     font-size: 14px; 
+  }
+}
+
+@media (max-width: 567.98px) {
+  form {
+    font-size: 12px; 
   }
 }

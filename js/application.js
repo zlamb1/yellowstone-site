@@ -1,19 +1,27 @@
 $(function() {
+  function getCollapseState($tab) {
+    return $tab.hasClass('show') ||
+    (!$tab.hasClass('show') && $tab.hasClass('collapsing'));
+  }
+  
   function getTabButton() {
     let btn = undefined;
-    if ($('#personalTab').hasClass('show')) {
+    if (getCollapseState($('#personalTab'))) {
       btn = $(`.btn[href='#positionTab']`);
     }
-    if ($('#positionTab').hasClass('show')) {
+    if (getCollapseState($('#positionTab'))) {
       btn = $(`.btn[href='#workExperienceTab']`);
     }
-    if ($('#workExperienceTab').hasClass('show')) {
+    if (getCollapseState($('#workExperienceTab'))) {
       btn = $(`.btn[href='#educationTab']`);
     }
-    if ($('#educationTab').hasClass('show')) {
+    if (getCollapseState($('#educationTab'))) {
       btn = $(`.btn[href='#generalTab']`);
     }
-
+    if (getCollapseState($('#generalTab'))) {
+      btn = $('#btn-progress-final');
+    }
+    
     return btn;
   }
 
@@ -36,29 +44,23 @@ $(function() {
     }
   }
 
-  function colorProgressBar(formValidated) {
+  function colorProgressBar() {
     const btn = getTabButton();
     if (btn !== undefined) {
-      if (!formValidated) {
-        let found = false; 
-        $('.progress-bar').each(function() { 
-          if (found) {
-            $(this).find('.progress-circle').addClass('bg-light');
-          } else {
-            $(this).find('.progress-circle').removeClass('bg-light');
-          }
+      let found = false; 
+      $('.progress-bar').each(function() { 
+        if ($(this).find(btn).length) {
+          found = true;
+        }
 
-          if ($(this).find(btn).length) {
-            found = true;
-          }
-
-          if (found) {
-            $(this).addClass('bg-light');
-          } else {
-            $(this).removeClass('bg-light');
-          }
-        });
-      }
+        if (found) {
+          $(this).addClass('bg-light');
+          $(this).find('.progress-circle').addClass('bg-light');
+        } else {
+          $(this).removeClass('bg-light');
+          $(this).find('.progress-circle').removeClass('bg-light');
+        }
+      });
     }
   }
 
@@ -71,10 +73,13 @@ $(function() {
     // loop over them and prevent submission
     Array.from(forms).forEach(form => {
       form.addEventListener('submit', event => {
-        event.preventDefault();
-        event.stopPropagation();
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+
         changeTab(form.checkValidity());
-        colorProgressBar(form.checkValidity());
+        colorProgressBar();
         form.classList.add('was-validated')
       }, false)
     })
@@ -84,17 +89,54 @@ $(function() {
     //$(this).attr('disabled', true);
   })
 
-  function onFormInput($this) {
+  function onFormInput() {
     setTimeout(function() {
-      colorProgressBar($this.closest('form').get(0).checkValidity());
+      colorProgressBar();
     }, 100);
   }
 
   $('form input, form select, form textarea').keydown(function() {
-    onFormInput($(this));
+    onFormInput();
   });
 
-  $('form input, form select, form textarea').change(function() {
-    onFormInput($(this));
+  $('form input, form select, form textarea, form textarea').change(function() {
+    onFormInput();
+  });
+
+  $('form input, form select, form textarea, form .btn').click(function() {
+    onFormInput();
+  });
+
+  $('.tab').on('shown.bs.collapse', function() {
+    onFormInput();
+  });
+
+  $('#housingCheckbox').change(function() {
+    if (!$(this).is(':checked')) {
+      $('#rvTrailerDiv').collapse('hide');
+    } else if ($('#housingRadio2').is(':checked')) {
+      $('#rvTrailerDiv').collapse('show');
+    }
+  });
+
+  $(window).on('load resize', function() {
+    $('.responsive-group')
+      .toggleClass('btn-group', $(window).width() >= BS_BREAKPOINT_LG)
+      .toggleClass('btn-group-vertical', $(window).width() < BS_BREAKPOINT_LG);
+  })
+
+  $('input[name="housingRadio"]:radio').change(function() {
+    if ($(this).get(0) == $('#housingRadio2').get(0)) {
+      $('#rvTrailerDiv').collapse('show');
+    } else {
+      $('#rvTrailerDiv').collapse('hide');
+    }
+  });
+
+  $('#rvTrailerDiv').on('hide.bs.collapse', function(e) {
+    if ($('#housingCheck').is(':checked') && $('#housingRadio2').is(':checked')) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
   });
 });

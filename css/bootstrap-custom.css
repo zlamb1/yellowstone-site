@@ -7561,6 +7561,10 @@ textarea.form-control-lg {
   width: 20% !important;
 }
 
+.w-30 {
+  width: 30% !important;
+}
+
 .w-40 {
   width: 40% !important;
 }
@@ -7569,8 +7573,16 @@ textarea.form-control-lg {
   width: 60% !important;
 }
 
+.w-70 {
+  width: 70% !important;
+}
+
 .w-80 {
   width: 80% !important;
+}
+
+.w-90 {
+  width: 90% !important;
 }
 
 .mw-100 {
@@ -9228,14 +9240,23 @@ textarea.form-control-lg {
   .w-sm-20 {
     width: 20% !important;
   }
+  .w-sm-30 {
+    width: 30% !important;
+  }
   .w-sm-40 {
     width: 40% !important;
   }
   .w-sm-60 {
     width: 60% !important;
   }
+  .w-sm-70 {
+    width: 70% !important;
+  }
   .w-sm-80 {
     width: 80% !important;
+  }
+  .w-sm-90 {
+    width: 90% !important;
   }
   .flex-sm-fill {
     flex: 1 1 auto !important;
@@ -9890,14 +9911,23 @@ textarea.form-control-lg {
   .w-md-20 {
     width: 20% !important;
   }
+  .w-md-30 {
+    width: 30% !important;
+  }
   .w-md-40 {
     width: 40% !important;
   }
   .w-md-60 {
     width: 60% !important;
   }
+  .w-md-70 {
+    width: 70% !important;
+  }
   .w-md-80 {
     width: 80% !important;
+  }
+  .w-md-90 {
+    width: 90% !important;
   }
   .flex-md-fill {
     flex: 1 1 auto !important;
@@ -10552,14 +10582,23 @@ textarea.form-control-lg {
   .w-lg-20 {
     width: 20% !important;
   }
+  .w-lg-30 {
+    width: 30% !important;
+  }
   .w-lg-40 {
     width: 40% !important;
   }
   .w-lg-60 {
     width: 60% !important;
   }
+  .w-lg-70 {
+    width: 70% !important;
+  }
   .w-lg-80 {
     width: 80% !important;
+  }
+  .w-lg-90 {
+    width: 90% !important;
   }
   .flex-lg-fill {
     flex: 1 1 auto !important;
@@ -11214,14 +11253,23 @@ textarea.form-control-lg {
   .w-xl-20 {
     width: 20% !important;
   }
+  .w-xl-30 {
+    width: 30% !important;
+  }
   .w-xl-40 {
     width: 40% !important;
   }
   .w-xl-60 {
     width: 60% !important;
   }
+  .w-xl-70 {
+    width: 70% !important;
+  }
   .w-xl-80 {
     width: 80% !important;
+  }
+  .w-xl-90 {
+    width: 90% !important;
   }
   .flex-xl-fill {
     flex: 1 1 auto !important;
@@ -11876,14 +11924,23 @@ textarea.form-control-lg {
   .w-xxl-20 {
     width: 20% !important;
   }
+  .w-xxl-30 {
+    width: 30% !important;
+  }
   .w-xxl-40 {
     width: 40% !important;
   }
   .w-xxl-60 {
     width: 60% !important;
   }
+  .w-xxl-70 {
+    width: 70% !important;
+  }
   .w-xxl-80 {
     width: 80% !important;
+  }
+  .w-xxl-90 {
+    width: 90% !important;
   }
   .flex-xxl-fill {
     flex: 1 1 auto !important;

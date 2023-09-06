@@ -33,83 +33,95 @@
       <div class="d-flex justify-content-center my-5 py-3 overflow-visible">
         <div class="progress w-100 w-lg-75 d-flex flex-row overflow-visible" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
           <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary position-relative overflow-visible">
-            <div class="ms-auto position-absolute rounded-circle bg-primary border border-3 border-primary progress-circle">
+            <div class="ms-auto position-absolute end-0 rounded-circle bg-primary border border-3 border-primary progress-circle">
               <button class="btn btn-info position-absolute text-primary mt-3" data-bs-toggle="collapse" href="#personalTab" role="button" aria-expanded="true" aria-controls="personalTab">
                 Personal Information
               </button>
             </div>
           </div>
           <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary bg-light position-relative overflow-visible">
-            <div class="ms-auto position-absolute rounded-circle bg-primary bg-light border border-3 border-primary progress-circle">
+            <div class="ms-auto position-absolute end-0 rounded-circle bg-primary bg-light border border-3 border-primary progress-circle">
               <button class="btn btn-info position-absolute text-primary mb-3 bottom-0" data-bs-toggle="collapse" href="#positionTab" role="button" aria-expanded="false" aria-controls="positionTab">
                 Position Information
               </button>
             </div>
           </div>
           <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary bg-light position-relative overflow-visible">
-            <div class="ms-auto position-absolute rounded-circle bg-primary bg-light border border-3 border-primary progress-circle">
+            <div class="ms-auto position-absolute end-0 rounded-circle bg-primary bg-light border border-3 border-primary progress-circle">
               <button class="btn btn-info position-absolute text-primary mt-3" data-bs-toggle="collapse" href="#workExperienceTab" role="button" aria-expanded="false" aria-controls="workExperienceTab">
                 Work Experience
               </button>
             </div>
           </div>
           <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary bg-light position-relative overflow-visible">
-            <div class="ms-auto position-absolute rounded-circle bg-primary bg-light border border-3 border-primary progress-circle">
+            <div class="ms-auto position-absolute end-0 rounded-circle bg-primary bg-light border border-3 border-primary progress-circle">
               <button class="btn btn-info position-absolute text-primary mb-3 bottom-0" data-bs-toggle="collapse" href="#educationTab" role="button" aria-expanded="false" aria-controls="educationTab">
                 Education
               </button>
             </div>
           </div>
           <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary bg-light position-relative overflow-visible">
-            <div class="ms-auto position-absolute rounded-circle bg-primary bg-light border border-3 border-primary progress-circle">
+            <div class="ms-auto position-absolute end-0 rounded-circle bg-primary bg-light border border-3 border-primary progress-circle">
               <button class="btn btn-info position-absolute text-primary mt-3" data-bs-toggle="collapse" href="#generalTab" role="button" aria-expanded="false" aria-controls="generalTab">
                 General Information
               </button>
             </div>
           </div>
           <div class="progress-bar bg-transparent position-relative overflow-visible">
+            <button class="d-none" id="btn-progress-final"></button>
           </div>
         </div>
       </div>
       <div class="w-100 px-4 pb-4 text-primary rounded-3">
-        <div class="collapse show" id="personalTab">
-          <form class="needs-validation bg-secondary rounded-2 py-3" novalidate>
-            <div class="fs-3 fw-bold user-select-none border-bottom border-primary border-3 mx-5 mb-4">Personal Information</div>
-            <div class="vstack w-75 w-lg-50 gap-4 mx-auto">
-              <div class="form-floating">
+        <div class="collapse show tab" id="personalTab">
+          <form class="needs-validation bg-secondary rounded-2 py-3" novalidate action="javascript:void(0);">
+            <div class="fs-3 fw-bold user-select-none border-bottom border-primary border-3 mx-3 mx-md-5 mb-4">Personal Information</div>
+            <div class="w-100 w-sm-75 w-md-50 vstack gap-4 justify-content-center align-items-center mx-auto px-3 px-lg-5">
+              <div class="w-100 form-floating">
                 <input type="text" class="form-control" id="fullNameInput" required>
                 <label class="form-label" for="fullNameInput">Full Name</label>
                 <div class="invalid-feedback">
                   Please enter your full name.
                 </div>
               </div>
-              <div class="form-floating">
-                <input type="text" class="form-control" id="addressInput" required>
-                <label class="form-label" for="addressInput">Mailing Address</label>
+              <div class="w-100 form-floating">
+                <input type="number" class="form-control" id="ageInput" required>
+                <label class="form-label" for="ageInput">Age</label>
                 <div class="invalid-feedback">
-                  Please enter your mailing address.
+                  Please enter your age.
                 </div>
               </div>
-              <div class="form-floating">
-                <input type="text" class="form-control" id="cityInput" required>
-                <label class="form-label" for="cityInput">City</label>
-                <div class="invalid-feedback">
-                  Please enter your city.
+              <div class="w-100 hstack gap-4 flex-column flex-xxl-row justify-content-center align-items-center mx-auto">
+                <div class="w-100 form-floating">
+                  <input type="text" class="form-control" id="addressInput" required>
+                  <label class="form-label" for="addressInput">Mailing Address</label>
+                  <div class="invalid-feedback">
+                    Please enter your mailing address.
+                  </div>
+                </div>
+                <div class="w-100 form-floating">
+                  <input type="text" class="form-control" id="cityInput" required>
+                  <label class="form-label" for="cityInput">City</label>
+                  <div class="invalid-feedback">
+                    Please enter your city.
+                  </div>
                 </div>
               </div>
-              <div class="form-floating">
-                <select class="form-select state-select" aria-label="Select state" id="stateSelect" required>
-                </select>
-                <label class="form-label" for="stateSelect">State</label>
-              </div>
-              <div class="form-floating">
-                <input type="number" class="form-control" id="zipcodeInput" required>
-                <label class="form-label" for="zipcodeInput">Zip Code</label>
-                <div class="invalid-feedback">
-                  Please enter your zip code.
+              <div class="w-100 hstack gap-4 flex-column flex-xxl-row justify-content-center align-items-center mx-auto">
+                <div class="w-100 form-floating">
+                  <select class="form-select state-select" aria-label="Select state" id="stateSelect" required>
+                  </select>
+                  <label class="form-label" for="stateSelect">State</label>
+                </div>
+                <div class="w-100 form-floating">
+                  <input type="number" class="form-control" id="zipcodeInput" required>
+                  <label class="form-label" for="zipcodeInput">Zip Code</label>
+                  <div class="invalid-feedback">
+                    Please enter your zip code.
+                  </div>
                 </div>
               </div>
-              <div class="form-floating">
+              <div class="w-100 form-floating">
                 <select class="form-select country-select" aria-label="Select country" id="countrySelect" required>
                 </select>
                 <label class="form-label" for="countrySelect">Country</label>
@@ -117,31 +129,79 @@
                   Please enter your phone number.
                 </div>
               </div>
-              <div class="form-floating">
+              <div class="w-100 form-floating">
                 <input type="number" class="form-control" id="phoneInput" required>
                 <label class="form-label" for="phoneInput">Phone Number</label>
                 <div class="invalid-feedback">
                   Please enter your phone number.
                 </div>
               </div>
-              <div class="form-floating">
+              <div class="w-100 form-floating">
                 <input type="email" class="form-control" id="emailInput" required>
                 <label class="form-label" for="emailInput">Email</label>
                 <div class="invalid-feedback">
                   Please enter your email.
                 </div>
               </div>
+              <div class="form-check hstack gap-1 column-gap-3 justify-content-center">
+                <input class="form-check-input check-input-lg flex-shrink-0 float-none m-0" type="checkbox" id="licenseCheckbox" data-bs-toggle="collapse" data-bs-target="#licenseDiv" aria-expanded="false" aria-controls="licenseDiv">
+                <label class="form-check-label user-select-none" for="licenseCheckbox">
+                  <div class="text-decoration-underline d-inline">
+                    For Maintenance, Employee Recreation, Security, Marina, Vending, 
+                    Transportation and all driving jobs.
+                  </div>
+                  Do you have a current valid Driver's License?
+                </label>
+              </div>
+              <div class="w-100 hstack flex-column flex-xxl-row gap-4 align-items-stretch collapse disabled-inputs" id="licenseDiv">
+                <div class="w-100 form-floating">
+                  <input type="text" class="form-control" id="licenseNumberInput" disabled required>
+                  <label class="form-label" for="licenseNumberInput">License Number</label>
+                  <div class="invalid-feedback">
+                    Please enter your license number.
+                  </div>
+                </div>
+                <div class="w-100 form-floating">
+                  <input type="text" class="form-control" id="licenseTypeInput" disabled required>
+                  <label class="form-label" for="licenseTypeInput">License Type</label>
+                  <div class="invalid-feedback">
+                    Please enter your license type.
+                  </div>
+                </div>
+                <div class="w-100 form-floating">
+                  <select class="form-control state-select" id="licenseStateInput" disabled required></select>
+                  <label class="form-label" for="licenseStateInput">State Issued</label>
+                  <div class="invalid-feedback">
+                    Please enter the state which issued your license.
+                  </div>
+                </div>
+              </div>
+              <div class="form-check hstack gap-1 column-gap-3 justify-content-center">
+                <input class="form-check-input check-input-lg flex-shrink-0 float-none m-0" type="checkbox" id="felonyCheckbox" data-bs-toggle="collapse" data-bs-target="#felonyDiv" aria-expanded="false" aria-controls="felonyDiv">
+                <label class="form-check-label user-select-none" for="felonyCheckbox">
+                  Have you ever been convicted of a felony?
+                </label>
+              </div>
+              <div class="w-100 collapse disabled-inputs" id="felonyDiv">
+                <div class="w-100 form-floating">
+                  <textarea class="form-control" id="felonyDetailsInput" disabled required></textarea>
+                  <label class="form-label" for="felonyDetailsInput">Details & Dates</label>
+                  <div class="invalid-feedback">
+                    Please state details and dates.
+                  </div>
+                </div>
+              </div>
               <button class="btn btn-primary w-50 align-self-center" type="submit">Continue to Next Step</button>
             </div>
           </form>
         </div>
-        <div class="collapse" id="positionTab">
-          <form class="needs-validation bg-secondary rounded-2 py-4" novalidate>
-            <div class="fs-3 fw-bold user-select-none border-bottom border-primary border-3 mx-5 mb-4">Position Information</div>
-            <div class="vstack w-75 w-lg-50 gap-4 mx-auto">
-              <div class="vstack gap-4" id="position-selects">
-                <div class="form-floating">
-                  <select class="form-select position-select" aria-label="Select position 1" id="positionSelect1" required>
+        <div class="collapse tab" id="positionTab">
+          <form class="needs-validation bg-secondary rounded-2 py-4" novalidate action="javascript:void(0);">
+            <div class="fs-3 fw-bold user-select-none border-bottom border-primary border-3 mx-3 mx-md-5 mb-4">Position Information</div>
+            <div class="w-100 w-sm-75 w-md-50 vstack gap-4 justify-content-center align-items-center mx-auto px-3 px-lg-5">
+              <div class="w-100 vstack gap-4" id="position-selects">
+                <div class="w-100 form-floating">
+                  <select class="w-100 form-select position-select" aria-label="Select position 1" id="positionSelect1" required>
                   </select>
                   <label class="form-label" for="positionSelect1">Position 1</label>
                   <div class="invalid-feedback">
@@ -150,7 +210,7 @@
                 </div>
               </div>
               <div class="d-flex justify-content-center">
-                <button class="btn btn-success addPositionBtn" type="button">
+                <button class="btn btn-success btn-add" type="button">
                   <i class="fa-solid fa-plus"></i>
                 </button>
               </div>
@@ -177,9 +237,9 @@
                   </div>
                 </div>
               </div>
-              <div class="form-check text-center">
-                <input class="form-check-input check-input-lg" type="checkbox" value="" id="workEligibilityCheckbox">
-                <label class="form-check-label user-select-none " for="workEligibilityCheckbox">
+              <div class="form-check hstack gap-1 column-gap-3 justify-content-center align-items-center">
+                <input class="form-check-input check-input-lg flex-shrink-0 float-none m-0" type="checkbox" value="" id="workEligibilityCheckbox">
+                <label class="form-check-label user-select-none text-center" for="workEligibilityCheckbox">
                   Would you accept a Server Assistant, Kitchen Crew, Cafeteria, Laundry, Food Service Attendant or 
                   Room Attendant position if those applied for are unavailable?
                 </label>
@@ -188,14 +248,14 @@
             </div>
           </form>
         </div>
-        <div class="collapse" id="workExperienceTab">
-          <form class="needs-validation bg-secondary rounded-2 py-4" novalidate>
-            <div class="fs-3 fw-bold user-select-none border-bottom border-primary border-3 mx-5 mb-4">Work Experience</div>
-            <div class="vstack gap-3 mx-auto px-5">
-              <div class="vstack gap-3" id="employerStack">
-                <div class="w-100 w-lg-75 bg-primary rounded-1 mx-auto px-5 py-3 employer-info">
-                  <div class="vstack gap-4 mx-auto">
-                    <div class="fs-4 text-secondary pt-3 user-select-none employer-header">
+        <div class="collapse tab" id="workExperienceTab">
+          <form class="needs-validation bg-secondary rounded-2 py-4" novalidate action="javascript:void(0);">
+            <div class="fs-3 fw-bold user-select-none border-bottom border-primary border-3 mx-3 mx-md-5">Work Experience</div>
+            <div class="w-100 w-md-75 vstack gap-4 mx-auto px-3 px-md-5 py-4">
+              <div class="vstack gap-4" id="employerStack">
+                <div class="w-100 bg-primary rounded-1 mx-auto px-3 px-lg-5 pt-3 pb-4 employer-info">
+                  <div class="w-100 w-lg-75 vstack gap-4 mx-auto">
+                    <div class="fs-4 text-secondary user-select-none employer-header header">
                       <div class="d-inline">Employer #1</div>
                       <button type="button" class="btn btn-danger close-btn float-end" aria-label="Close">
                         <i class="fa-solid fa-xmark text-red"></i>
@@ -208,32 +268,36 @@
                         Please enter your employer's name.
                       </div>
                     </div>
-                    <div class="form-floating">
-                      <input type="text" class="form-control" id="employerAddressInput1" required>
-                      <label class="form-label" for="employerAddressInput1">Street Address</label>
-                      <div class="invalid-feedback">
-                        Please enter your employer's street address.
+                    <div class="w-100 hstack gap-4 flex-column flex-lg-row align-items-stretch">
+                      <div class="w-100 form-floating">
+                        <input type="text" class="form-control" id="employerAddressInput1" required>
+                        <label class="form-label" for="employerAddressInput1">Street Address</label>
+                        <div class="invalid-feedback">
+                          Please enter your employer's street address.
+                        </div>
+                      </div>
+                      <div class="w-100 form-floating">
+                        <input type="text" class="form-control" id="employerCityInput1" required>
+                        <label class="form-label" for="employerCityInput1">City</label>
+                        <div class="invalid-feedback">
+                          Please enter your employer's city.
+                        </div>
                       </div>
                     </div>
-                    <div class="form-floating">
-                      <input type="text" class="form-control" id="employerCityInput1" required>
-                      <label class="form-label" for="employerCityInput1">City</label>
-                      <div class="invalid-feedback">
-                        Please enter your employer's city.
+                    <div class="w-100 hstack gap-4 flex-column flex-lg-row align-items-stretch">
+                      <div class="w-100 form-floating">
+                        <select class="form-control state-select" id="employerStateInput1" required></select>
+                        <label class="form-label" for="employerStateInput1">State</label>
+                        <div class="invalid-feedback">
+                          Please enter your employer's state.
+                        </div>
                       </div>
-                    </div>
-                    <div class="form-floating">
-                      <select class="form-control state-select" id="employerStateInput1" required></select>
-                      <label class="form-label" for="employerStateInput1">State</label>
-                      <div class="invalid-feedback">
-                        Please enter your employer's state.
-                      </div>
-                    </div>
-                    <div class="form-floating">
-                      <input type="number" class="form-control" id="employerZipCodeInput1" required>
-                      <label class="form-label" for="employerZipCodeInput1">Zip Code</label>
-                      <div class="invalid-feedback">
-                        Please enter your employer's zip code.
+                      <div class="w-100 form-floating">
+                        <input type="number" class="form-control" id="employerZipCodeInput1" required>
+                        <label class="form-label" for="employerZipCodeInput1">Zip Code</label>
+                        <div class="invalid-feedback">
+                          Please enter your employer's zip code.
+                        </div>
                       </div>
                     </div>
                     <div class="form-floating">
@@ -305,7 +369,7 @@
                     </div>
                     <div class="form-check d-flex justify-content-center">
                       <input class="form-check-input check-input-lg ar-1" type="checkbox" id="employerContact1" value="no">
-                      <label class="form-check-label ms-3 user-select-none" for="employerContact1" style="color: var(--bs-gray-500);">
+                      <label class="form-check-label ms-3 user-select-none text-info" for="employerContact1">
                         May we contact this employer?
                       </label>
                     </div>
@@ -321,62 +385,217 @@
             </div>
           </form>
         </div>
-        <div class="collapse" id="educationTab">
-          <form class="needs-validation bg-secondary rounded-2 py-4" novalidate>
-            <div class="fs-3 fw-bold user-select-none border-bottom border-primary border-3 mx-5 mb-4">Education</div>
-            <div class="vstack w-100 w-lg-75 gap-3 mx-auto">
-              <div class="vstack gap-3 bg-primary rounded-1 mx-5 px-5 py-3">
-                <div class="fs-4 text-secondary user-select-none school-header">
-                  <div class="d-inline">School #1</div>
-                  <button type="button" class="btn btn-danger close-btn float-end" aria-label="Close">
-                    <i class="fa-solid fa-xmark text-red"></i>
-                  </button>
+        <div class="collapse tab" id="educationTab">
+          <form class="needs-validation bg-secondary rounded-2 py-4" novalidate action="javascript:void(0);">
+            <div class="fs-3 fw-bold user-select-none border-bottom border-primary border-3 mx-3 mx-md-5 mb-4">Education</div>
+            <div class="w-100 vstack gap-4 mx-auto">
+              <div class="w-100 vstack gap-4 mx-auto px-3 px-lg-5" id="schoolStack">
+                <div class="w-100 w-lg-75 school-info bg-primary rounded-3 mx-auto">
+                  <div class="w-100 w-lg-75 vstack gap-4 align-items-center mx-auto px-3 pt-3 pb-4">
+                    <div class="align-self-start w-100 d-flex flex-wrap fs-4 text-secondary user-select-none school-header header pb-3">
+                      <div class="d-inline">School #1</div>
+                      <button type="button" class="btn btn-danger close-btn ms-auto" aria-label="Close">
+                        <i class="fa-solid fa-xmark text-red"></i>
+                      </button>
+                    </div>
+                    <div class="w-100 hstack gap-4 flex-column flex-lg-row border border-primary">
+                      <div class="w-100 form-floating h-100">
+                        <input type="text" class="form-control" id="schoolNameInput1" required>
+                        <label class="form-label" for="schoolNameInput1">School Name</label>
+                        <div class="invalid-feedback">
+                          Please enter the school's name.
+                        </div>
+                      </div>
+                      <div class="w-100 form-floating h-100">
+                        <input type="text" class="form-control" id="schoolLocationInput1" required>
+                        <label class="form-label" for="schoolLocationInput1">School Location</label>
+                        <div class="invalid-feedback">
+                          Please enter the school's location.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w-100 hstack gap-4 flex-column flex-lg-row border border-primary">
+                      <div class="w-100 form-floating h-100">
+                        <input type="text" class="form-control" id="schoolDegreeInput1" required>
+                        <label class="form-label" for="schoolDegreeInput1">Degree Received</label>
+                        <div class="invalid-feedback">
+                          Please enter the degree you received.
+                        </div>
+                      </div>
+                      <div class="w-100 form-floating">
+                        <input type="text" class="form-control" id="schoolFieldOfStudyInput1" required>
+                        <label class="form-label" for="schoolFieldOfStudyInput1">Field of Study</label>
+                        <div class="invalid-feedback">
+                          Please enter your field of study.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-check text-info mt-xl-3">
+                      <input class="form-check-input check-input-lg" type="checkbox" id="schoolGraduateCheckbox1">
+                      <label class="form-check-label ms-1 user-select-none" for="schoolGraduateCheckbox1">
+                        Graduate?
+                      </label>
+                    </div>
+                  </div>
                 </div>
-                <div class="vstack flex-column flex-xl-row align-items-xl-stretch gap-3 border border-primary pb-3">
-                  <div class="form-floating h-100">
-                    <input type="text" class="form-control" id="schoolNameInput1" required>
-                    <label class="form-label" for="schoolNameInput1">School Name</label>
-                    <div class="invalid-feedback">
-                      Please enter the school's name.
-                    </div>
-                  </div>
-                  <div class="form-floating h-100">
-                    <input type="text" class="form-control" id="schoolLocationInput1" required>
-                    <label class="form-label" for="schoolLocationInput1">School Location</label>
-                    <div class="invalid-feedback">
-                      Please enter the school's location.
-                    </div>
-                  </div>
-                  <div class="form-floating h-100">
-                    <input type="text" class="form-control" id="schoolDegreeInput1" required>
-                    <label class="form-label" for="schoolDegreeInput1">Degree Received</label>
-                    <div class="invalid-feedback">
-                      Please enter the degree you received.
-                    </div>
-                  </div>
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="schoolFieldOfStudyInput1" required>
-                    <label class="form-label" for="schoolFieldOfStudyInput1">Field of Study</label>
-                    <div class="invalid-feedback">
-                      Please enter your field of study.
-                    </div>
-                  </div>
-                  <div class="form-check text-info mx-auto mt-xl-3">
-                    <input class="form-check-input check-input-lg" type="checkbox" id="schoolGraduateCheckbox1">
-                    <label class="form-check-label ms-1 user-select-none" for="schoolGraduateCheckbox1">
-                      Graduate?
-                    </label>
-                  </div>
-                </div>
+              </div>
+              <div class="d-flex justify-content-center">
+                <button class="btn btn-success btn-add" type="button">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
               </div>
               <button class="btn btn-primary w-50 align-self-center" type="submit">Continue to Next Step</button>
             </div>
           </form>
         </div>
-        <div class="collapse" id="generalTab">
-          <form class="needs-validation bg-secondary rounded-2 py-4" novalidate>
-            <div class="vstack w-100 w-lg-50 gap-3 mx-auto">
-
+        <div class="collapse tab" id="generalTab">
+          <form class="needs-validation bg-secondary rounded-2 py-4" novalidate action="/submitted.html">
+            <div class="fs-3 fw-bold user-select-none border-bottom border-primary border-3 mx-3 mx-md-5 mb-4">General Information</div>
+            <div class="vstack w-100 w-lg-75 gap-3 mx-auto px-4">
+              <div class="form-check w-100">
+                <input class="form-check-input check-input-lg float-none" type="checkbox" id="workedBeforeCheckbox" data-bs-toggle="collapse" data-bs-target="#workedBeforeDiv" aria-expanded="false" aria-controls="workedBeforeDiv">
+                <label class="form-check-label ms-3 user-select-none" for="workedBeforeCheckbox">
+                  Have you ever worked for Xanterra Parks and Resorts, 
+                  Amfac Park and Resorts, Fred Harvey or TWRS company?
+                </label>
+              </div>
+              <div class="w-100 vstack gap-4 flex-xl-row mx-auto collapse disabled-inputs" id="workedBeforeDiv">
+                <div class="w-100 hstack gap-4 flex-column flex-md-row">
+                  <div class="w-100 w-md-50 h-100 form-floating">
+                    <input type="number" class="form-control" id="employeeNumberInput" disabled required>
+                    <label class="form-label" for="employeeNumberInput">Employee Number</label>
+                    <div class="invalid-feedback">
+                      You must enter your employee number.
+                    </div>
+                  </div>
+                  <div class="w-100 w-md-50 h-100 form-floating">
+                    <select class="form-control yellowstone-locations-select" id="yellowstoneLocationInput1" disabled required>
+                    </select>
+                    <label class="form-label" for="yellowstoneLocationInput1">Location</label>
+                    <div class="invalid-feedback">
+                      You must select a location.
+                    </div>
+                  </div>
+                </div>                  
+                <div class="hstack gap-4 flex-column flex-md-row">
+                  <div class="w-100 w-md-50 h-100 form-floating">
+                    <input class="form-control" type="date" id="startDateInput1" disabled required>
+                    <label class="form-label" for="startDateInput1">Start Date</label>
+                    <div class="invalid-feedback">
+                      You must enter a start date.
+                    </div>
+                  </div>
+                  <div class="w-100 w-md-50 h-100 form-floating">
+                    <input class="form-control" type="date" id="endDateInput1" disabled required>
+                    <label class="form-label" for="endDateInput1">End Date</label>
+                    <div class="invalid-feedback">
+                      You must enter an end date.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-check w-100">
+                <input class="form-check-input check-input-lg float-none" type="checkbox" id="differentNameCheckbox" data-bs-toggle="collapse" data-bs-target="#differentNameDiv" aria-expanded="false" aria-controls="differentNameDiv">
+                <label class="form-check-label ms-3 user-select-none" for="differentNameCheckbox">
+                  Have you ever been employed under a different name with any 
+                  Xanterra Parks and Resorts, Amfac Parks and Resorts, Fred Harvey or 
+                  TWRS company?
+                </label>
+              </div>
+              <div class="w-100 vstack gap-4 flex-xl-row mx-auto collapse disabled-inputs" id="differentNameDiv">
+                <div class="w-100 hstack gap-4 flex-column flex-md-row">
+                  <div class="w-100 w-md-50 h-100 form-floating">
+                    <input type="text" class="form-control" id="employeeFormerNameInput" disabled required>
+                    <label class="form-label" for="employeeFormerNameInput">Former Name</label>
+                    <div class="invalid-feedback">
+                      You must enter your former name.
+                    </div>
+                  </div>
+                  <div class="w-100 w-md-50 h-100 form-floating">
+                    <select class="form-control yellowstone-locations-select" id="yellowstoneLocationInput2" disabled required>
+                    </select>
+                    <label class="form-label" for="yellowstoneLocationInput2">Location</label>
+                    <div class="invalid-feedback">
+                      You must select a location.
+                    </div>
+                  </div>
+                </div>  
+              </div>
+              <div class="form-check w-100">
+                <input class="form-check-input check-input-lg float-none" type="checkbox" id="relativeCheckbox" data-bs-toggle="collapse" data-bs-target="#relativeDiv" aria-expanded="false" aria-controls="relativeDiv">
+                <label class="form-check-label ms-3 user-select-none" for="relativeCheckbox">
+                  Are you a spouse, dependent, relative, or Domestic Partner of a 
+                  National Park Service employee?
+                </label>
+              </div>
+              <div class="w-100 vstack gap-4 flex-xl-row mx-auto collapse disabled-inputs" id="relativeDiv">
+                <div class="w-100 hstack gap-4 flex-column flex-md-row">
+                  <div class="w-100 w-md-50 h-100 form-floating">
+                    <input type="text" class="form-control" id="employeeRelativeNameInput" disabled required>
+                    <label class="form-label" for="employeeRelativeNameInput">Relative's Name</label>
+                    <div class="invalid-feedback">
+                      You must enter your relative's name.
+                    </div>
+                  </div>
+                  <div class="w-100 w-md-50 h-100 form-floating">
+                    <select class="form-control yellowstone-locations-select" id="yellowstoneLocationInput3" disabled required>
+                    </select>
+                    <label class="form-label" for="yellowstoneLocationInput3">Location</label>
+                    <div class="invalid-feedback">
+                      You must select a location.
+                    </div>
+                  </div>
+                </div>  
+              </div>
+              <div class="form-check w-100">
+                <input class="form-check-input check-input-lg float-none" type="checkbox" id="workingWithCheckbox" data-bs-toggle="collapse" data-bs-target="#workingWithDiv" aria-expanded="false" aria-controls="workingWithDiv">
+                <label class="form-check-label ms-3 user-select-none" for="workingWithCheckbox">
+                  Are you applying with a friend or spouse?
+                </label>
+              </div>
+              <div class="w-100 btn-group responsive-group collapse disabled-inputs" role="group" id="workingWithDiv">
+                <input class="btn-check" type="checkbox" id="travellingTogetherCheckbox">
+                <label class="w-100 btn btn-light border border-dark border-opacity-25 label-hover user-select-none" for="travellingTogetherCheckbox">
+                  Are you traveling together?
+                </label>
+                <input class="btn-check" type="checkbox" id="sameLocationCheckbox">
+                <label class="w-100 btn btn-light border border-dark border-opacity-25 label-hover user-select-none" for="sameLocationCheckbox">
+                  Do you want to work in the same location?
+                </label>
+              </div>
+              <div class="w-100 form-check">
+                <input class="form-check-input check-input-lg float-none" type="checkbox" id="housingCheckbox" data-bs-toggle="collapse" data-bs-target="#housingDiv" aria-expanded="false" aria-controls="housingDiv">
+                <label class="form-check-label ms-3 user-select-none" for="housingCheckbox">
+                  If you meet housing requirements (<span class="text-danger">18+ y/o</span>)
+                  , do you have a housing preference?
+                </label>
+              </div>
+              <div class="w-100 btn-group responsive-group collapse disabled-inputs" role="group" id="housingDiv">
+                <input class="btn-check" type="radio" id="housingRadio1" name="housingRadio" checked>
+                <label class="w-100 btn btn-light border border-dark border-opacity-25 label-hover user-select-none" for="housingRadio1">
+                  Dormitory
+                </label>
+                <input class="btn-check" type="radio" id="housingRadio2" name="housingRadio" data-bs-toggle="collapse" data-bs-target="#rvTrailerDiv" aria-expanded="false" aria-controls="rvTrailerDiv">
+                <label class="w-100 btn btn-light border border-dark border-opacity-25 label-hover user-select-none" for="housingRadio2">
+                  RV or Trailer
+                </label>
+                <input class="btn-check" type="radio" id="housingRadio3" name="housingRadio">
+                <label class="w-100 btn btn-light border border-dark border-opacity-25 label-hover user-select-none" for="housingRadio3">
+                  Local Resident
+                </label>
+              </div>
+              <div class="w-100 form-floating collapse disabled-inputs" id="rvTrailerDiv">
+                <input type="text" class="form-control" id="rvTrailerDetailsInput" disabled required>
+                <label class="form-label" for="rvTrailerDetailsInput">
+                  RV or Trailer Details (indicate model, year, length of RV or Trailer)
+                </label>
+                <div class="invalid-feedback">
+                  You must enter your RV trailer's details.
+                </div>
+              </div>
+              <button class="btn btn-primary w-50 align-self-center" type="submit">
+                Submit Application
+              </button>
             </div>
           </form>
         </div>

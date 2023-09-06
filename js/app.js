@@ -8,14 +8,23 @@ function handleCollapseBtnState(collapseElement, hidden) {
 }
 
 function addStateOptions(element) {
+  element.append('<option selected></option>');
   for (let i = 0; i < STATES.length; i++) {
     element.append(`<option>${STATES[i]}</option>`);
   }
 }
 
 function addCountryOptions(element) {
+  element.append('<option selected></option>');
   for (let i = 0; i < COUNTRIES.length; i++) {
     element.append(`<option>${COUNTRIES[i]}</option>`);
+  }
+}
+
+function addYellowstoneLocations(element) {
+  element.append('<option selected></option>');
+  for (let i = 0; i < YELLOWSTONE_LOCATIONS.length; i++) {
+    element.append(`<option>${YELLOWSTONE_LOCATIONS[i]}</option>`);
   }
 }
 
@@ -69,34 +78,53 @@ function setDisabledOptions() {
   });
 }
 
-function updateEmployerInfo(element, newEmployerNumber) {
-  element.find('.employer-header > div').text(`Employer #${newEmployerNumber}`);
+function updateInfo(element, newNumber) {
+  element.find('.header > div').text(
+    element.find('.header > div').text().slice(0, -1) + newNumber
+  );
   element.find('input, select, textarea').each(function() {
-    $(this).attr('id', $(this).attr('id').slice(0, -1) + newEmployerNumber);
+    $(this).attr('id', $(this).attr('id').slice(0, -1) + newNumber);
   });
 
   element.find('label').each(function() {
-    $(this).attr('for', $(this).attr('for').slice(0, -1) + newEmployerNumber);
+    $(this).attr('for', $(this).attr('for').slice(0, -1) + newNumber);
   });
 }
 
 $(function() {
-  // not a fan of globals like this
+  $('.collapse.disabled-inputs').on({
+    'shown.bs.collapse': function() {
+      $(this).find('input, select, textarea').attr('disabled', false);
+    },
+    'hidden.bs.collapse': function() {
+      $(this).find('input, select, textarea').attr('disabled', true);
+    }
+  });
+
   let ongoingCollapseShow = false; 
-  $('main .collapse').on({'hide.bs.collapse': function(e) {
+  $('.tab').on({'hide.bs.collapse': function(e) {
+    if ($(this).get(0) !== e.target) {
+      return;
+    }
+
     const eventCollapse = $(this);
     if ($('button[aria-expanded="true"]').length == 1) {
       e.preventDefault(); 
       return; 
     }
 
-  handleCollapseBtnState(eventCollapse, true);
-  }, 'show.bs.collapse': function(e) {
+    handleCollapseBtnState(eventCollapse, true);
+  }});
+
+  $('.tab').on({'show.bs.collapse': function(e) {
+    if ($(this).get(0) !== e.target) {
+      return;
+    }
     if (!ongoingCollapseShow) {
       ongoingCollapseShow = true;
       const eventCollapse = $(this);
       handleCollapseBtnState(eventCollapse, false);
-      $('main .collapse').each(function() {
+      $('.tab').each(function() {
         if (eventCollapse.get(0) !== $(this).get(0)) {
           $(this).collapse('hide');
         }
@@ -104,7 +132,12 @@ $(function() {
     } else {
       e.preventDefault(); 
     }
-  }, 'shown.bs.collapse': function() {
+  }});
+  
+  $('.tab').on({'shown.bs.collapse': function(e) {
+    if ($(this).get(0) !== e.target) {
+      return;
+    }
     ongoingCollapseShow = false; 
   }});
 
@@ -116,6 +149,10 @@ $(function() {
     addCountryOptions($(this));
   });
 
+  $('.yellowstone-locations-select').each(function() {
+    addYellowstoneLocations($(this));
+  });
+
   $('.position-select').each(function() {
     setupPositionSelect($(this));
   });
@@ -125,7 +162,7 @@ $(function() {
     setDisabledOptions();
   });
 
-  $('#position-selects').on('click', '.removePositionBtn', function() {
+  $('#position-selects').on('click', '.close-btn', function() {
     const removedSelectNumber = getPositionSelectsNumber($(this).parent().find('.position-select'));
     $(this).parent().remove();
     $('.position-select').each(function() {
@@ -141,18 +178,18 @@ $(function() {
     });
     setDisabledOptions();
     if ($('position-select').length < MAX_NUMBER_OF_POSITIONS) {
-      $('.addPositionBtn').css({'display': 'block'});
+      $('.btn-add').css({'display': 'block'});
     }
   });
 
-  $('#personalTab .addPositionBtn').click(function() {
+  $('#positionTab .btn-add').click(function() {
     const nextPosition = $('.position-select').length + 1; 
     $('#position-selects').append(`
       <div class='input-group form-floating'>
         <select class='form-select position-select' aria-label='Select position ${nextPosition}' id='positionSelect${nextPosition}' required>
         </select>
         <label class='form-label' for='positionSelect${nextPosition}'>Position ${nextPosition}</label>
-        <button class='btn btn-danger removePositionBtn' type='button'>
+        <button class='btn btn-danger close-btn' type='button'>
           <i class="fa-solid fa-minus"></i>
         </button>
         <div class='invalid-feedback'>
@@ -167,37 +204,6 @@ $(function() {
     }
   });
 
-  $('#workExperienceTab .btn-add').click(function() {
-    if ($('#employerStack').children().length == 1 && $('.employer-info').css('display') == 'none') {
-      $('.employer-info').css({'display': 'block'});
-      return;
-    }
-
-    const nextEmployerNumber = $('#employerStack').children().length + 1; 
-    let clone = $('#workExperienceTab .employer-info').first().clone();
-    updateEmployerInfo(clone, nextEmployerNumber);
-    clone.appendTo('#employerStack');
-    if (nextEmployerNumber >= MAX_NUMBER_OF_EMPLOYERS) {
-      $(this).css({'display': 'none'});
-    }
-  });
-
-  $('#workExperienceTab').on('click', '.close-btn', function() {
-    if ($('#employerStack').length <= 1) {
-      $('.employer-info').css({'display': 'none'});
-      return;
-    }
-
-    $(this).parent().parent().parent().remove();
-    $('#employerStack .employer-info').each(function(index) {
-      updateEmployerInfo($(this), index + 1);
-    });
-
-    if ($('#employerStack').children().length < MAX_NUMBER_OF_EMPLOYERS) {
-      $('#workExperienceTab .btn-add').css({'display': 'block'});
-    }
-  });
-
   $('#optionalPositionInput').on('input', function() {
     if (!$(this).val()) {
       $('#positionType1').attr('disabled', true);
@@ -205,6 +211,88 @@ $(function() {
     } else {
       $('#positionType1').attr('disabled', false);
       $('#positionType2').attr('disabled', false);
+    }
+  });
+
+  const clonedEmployerInfo = $('.employer-info').first().clone();
+  $('#workExperienceTab .btn-add').click(function() {
+    const nextEmployerNumber = $('#employerStack').children('.employer-info').length + 1; 
+    if (nextEmployerNumber == 1) {
+      $('#employerStack').html('');
+    }
+
+    const clone = clonedEmployerInfo.clone();
+    updateInfo(clone, nextEmployerNumber);
+    clone.appendTo('#employerStack');
+    if (nextEmployerNumber >= MAX_NUMBER_OF_EMPLOYERS) {
+      $(this).css({'display': 'none'});
+    }
+  });
+
+  $('#workExperienceTab').on('click', '.close-btn', function() {
+    $(this).parent().parent().parent().remove();
+    $('#employerStack .employer-info').each(function(index) {
+      updateInfo($(this), index + 1);
+    });
+
+    if ($('#employerStack').children().length < MAX_NUMBER_OF_EMPLOYERS) {
+      $('#workExperienceTab .btn-add').css({'display': 'block'});
+    }
+
+    if ($('#employerStack').children().length == 0) {
+      $('#employerStack').append(`
+        <div class="form-check text-center">
+          <input class="form-check-input check-input-lg float-none" type="checkbox" id="noEmployerCheckbox" required>
+          <label class="form-check-label ms-3 user-select-none" for="noEmployerCheckbox">
+            Please confirm that you want to submit no previous employers.
+          </label>
+          <div class="invalid-feedback">
+            You must agree before continuing.
+          </div>
+        </div>
+      `);
+    }
+  });
+
+  const educationInfoClone = $('#schoolStack .school-info').first().clone(); 
+  $('#educationTab .btn-add').click(function() {
+    const nextSchoolNumber = $('#schoolStack').children('.school-info').length + 1;
+    if (nextSchoolNumber == 1) {
+      $('#schoolStack').html('');
+    }
+
+    const clone = educationInfoClone.clone();
+    updateInfo(clone, nextSchoolNumber);
+    $('#schoolStack').append(clone);
+
+    if (nextSchoolNumber >= MAX_NUMBER_OF_SCHOOLS) {
+      $(this).css({'display': 'none'});
+    }
+  });
+
+  $('#educationTab').on('click', '.close-btn', function() {
+    $(this).parent().parent().parent().remove();
+
+    $('#schoolStack .school-info').each(function(index) {
+      updateInfo($(this), index + 1);
+    });
+
+    if ($('#schoolStack').children().length < MAX_NUMBER_OF_SCHOOLS) {
+      $('#educationTab .btn-add').css({'display': 'block'});
+    }
+
+    if ($('#schoolStack').children().length == 0) {
+      $('#schoolStack').append(`
+        <div class="form-check text-center">
+          <input class="form-check-input check-input-lg float-none" type="checkbox" id="noSchoolsCheckbox" required>
+          <label class="form-check-label ms-3 user-select-none" for="noSchoolsCheckbox">
+            Please confirm that you want to submit no prior education.
+          </label>
+          <div class="invalid-feedback">
+            You must agree before continuing.
+          </div>
+        </div>
+      `);
     }
   });
 

@@ -30,7 +30,7 @@
 
   <main>
     <div class="d-flex justify-content-center my-5">
-      <fieldset class="w-75 px-5 py-3 text-primary border border-2 border-secondary rounded-3">
+      <fieldset class="w-75 p-3 text-primary border border-2 border-secondary rounded-3">
         <legend class="float-none w-auto fw-bold fs-3">Application Form</legend>
         <p>
           If you are an individual with disabilities who needs accommodation or you 
@@ -56,46 +56,51 @@
           email us at info@yellowstonejobs.com.
         </p>
         <form class="needs-validation py-3" action="/application.html" novalidate>
-          <div class="vstack w-50 gap-3 mx-auto">
+          <div class="w-100 vstack gap-2 align-items-center text-center">
             <div class="text-center fs-5 fw-bold lead">
               Please affirm the following statements.
             </div>  
-            <div class="form-check px-5">
-              <input class="form-check-input check-input-lg" type="checkbox" value="" id="firstApplicationCheckbox" required>
-              <label class="form-check-label ms-2 user-select-none" for="firstApplicationCheckbox">
+            <div class="form-check hstack gap-1 column-gap-3 justify-content-center">
+              <input class="form-check-input check-input-lg flex-shrink-0 float-none m-0" type="checkbox" value="" id="firstApplicationCheckbox" required>
+              <label class="form-check-label user-select-none" for="firstApplicationCheckbox">
                 This is your first application this season.
               </label>
               <div class="invalid-feedback">
                 You must agree before continuing.
               </div>
             </div>
-            <div class="form-check px-5">
-              <input class="form-check-input check-input-lg" type="checkbox" id="workEligibilityCheckbox" required>
-              <label class="form-check-label ms-2 user-select-none" for="workEligibilityCheckbox">
+            <div class="form-check hstack gap-1 column-gap-3 justify-content-center">
+              <input class="form-check-input check-input-lg flex-shrink-0 float-none m-0" type="checkbox" id="workEligibilityCheckbox" required>
+              <label class="form-check-label user-select-none" for="workEligibilityCheckbox">
                 You can provide proof that you are eligible to work in the United States.
               </label>
               <div class="invalid-feedback">
                 You must agree before continuing.
               </div>
             </div>
-            <div class="text-center fs-5 fw-bold lead">
-              Please answer the following questions.
-            </div> 
-            <div class="form-check px-5">
-              <input class="form-check-input check-input-lg" type="checkbox" id="internationalCheckbox">
-              <label class="form-check-label ms-2 user-select-none" for="internationalCheckbox">
-                Are you an international applicant?
-              </label>
-            </div>
-            <div class="form-floating" id="sponsoringAgencyDiv">
-              <select class="form-control" id="sponsoringAgencySelect" disabled required>
-                <option></option>
-                <option>Aspire</option>
-                <option>CIEE</option>
-                <option>CCUSA</option>
-                <option>InterExchange</option>
-              </select>
-              <label class="form-label">Sponsoring Agency</label>
+            <div class="w-100 vstack gap-2 align-items-center my-4 text-center">
+              <div class="text-center fs-5 fw-bold lead">
+                Please answer the following questions.
+              </div> 
+              <div class="form-check hstack gap-1 column-gap-3 justify-content-center">
+                <input class="form-check-input check-input-lg flex-shrink-0 float-none m-0" type="checkbox" id="internationalCheckbox" data-bs-toggle="collapse" data-bs-target="#sponsoringAgencyDiv" aria-expanded="false" aria-controls="sponsoringAgencyDiv">
+                <label class="form-check-label user-select-none" for="internationalCheckbox">
+                  Are you an international applicant?
+                </label>
+              </div>
+              <div class="w-100 form-floating collapse disabled-inputs" id="sponsoringAgencyDiv">
+                <select class="form-control" id="sponsoringAgencySelect" disabled required>
+                  <option></option>
+                  <option>Aspire</option>
+                  <option>CIEE</option>
+                  <option>CCUSA</option>
+                  <option>InterExchange</option>
+                </select>
+                <label class="form-label">Sponsoring Agency</label>
+                <div class="invalid-feedback">
+                  You must select a sponsoring agency.
+                </div>
+              </div>
             </div>
             <button class="btn btn-primary w-50 align-self-center" type="submit">Continue</button>
           </div>
